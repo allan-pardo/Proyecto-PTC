@@ -1,0 +1,9 @@
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\bin\Debug\SistemaDatos.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\bin\Debug\SistemaDatos.pdb
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\bin\Debug\SistemaEntidades.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\bin\Debug\SistemaEntidades.pdb
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\obj\Debug\SistemaDatos.csproj.AssemblyReference.cache
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\obj\Debug\SistemaDatos.csproj.CoreCompileInputs.cache
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\obj\Debug\SistemaD.87387046.Up2Date
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\obj\Debug\SistemaDatos.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaDatos\obj\Debug\SistemaDatos.pdb
