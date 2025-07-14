@@ -1,34 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\",
+  "WorkspaceRootPath": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|c:\\users\\allan\\onedrive\\desktop\\trabajo ptc (oficial)\\sistemagestioninventario\\capapresentasion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|c:\\users\\estudiante\\desktop\\proyecto-ptc\\sistemagestioninventario\\capapresentasion\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|solutionrelative:capapresentasion\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{311286AD-C1AC-4C40-89C9-A127871211FE}|SistemaDatos\\SistemaDatos.csproj|c:\\users\\estudiante\\desktop\\proyecto-ptc\\sistemagestioninventario\\sistemadatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{311286AD-C1AC-4C40-89C9-A127871211FE}|SistemaDatos\\SistemaDatos.csproj|solutionrelative:sistemadatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|c:\\users\\estudiante\\desktop\\proyecto-ptc\\sistemagestioninventario\\capapresentasion\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|solutionrelative:capapresentasion\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|c:\\users\\estudiante\\desktop\\proyecto-ptc\\sistemagestioninventario\\capapresentasion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|solutionrelative:capapresentasion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{212AFBDF-B3A0-41C5-A7FA-9D76B26BBB6E}|SistemaNegocio\\SistemaNegocio.csproj|c:\\users\\allan\\onedrive\\desktop\\trabajo ptc (oficial)\\sistemagestioninventario\\sistemanegocio\\sn_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{212AFBDF-B3A0-41C5-A7FA-9D76B26BBB6E}|SistemaNegocio\\SistemaNegocio.csproj|solutionrelative:sistemanegocio\\sn_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{212AFBDF-B3A0-41C5-A7FA-9D76B26BBB6E}|SistemaNegocio\\SistemaNegocio.csproj|c:\\users\\allan\\onedrive\\desktop\\trabajo ptc (oficial)\\sistemagestioninventario\\sistemanegocio\\sn_permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{212AFBDF-B3A0-41C5-A7FA-9D76B26BBB6E}|SistemaNegocio\\SistemaNegocio.csproj|solutionrelative:sistemanegocio\\sn_permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E3EAA78-48F5-4201-9798-8233FC30ECFF}|SistemaEntidades\\SistemaEntidades.csproj|c:\\users\\allan\\onedrive\\desktop\\trabajo ptc (oficial)\\sistemagestioninventario\\sistemaentidades\\permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E3EAA78-48F5-4201-9798-8233FC30ECFF}|SistemaEntidades\\SistemaEntidades.csproj|solutionrelative:sistemaentidades\\permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{311286AD-C1AC-4C40-89C9-A127871211FE}|SistemaDatos\\SistemaDatos.csproj|c:\\users\\allan\\onedrive\\desktop\\trabajo ptc (oficial)\\sistemagestioninventario\\sistemadatos\\sd_permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{311286AD-C1AC-4C40-89C9-A127871211FE}|SistemaDatos\\SistemaDatos.csproj|solutionrelative:sistemadatos\\sd_permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|c:\\users\\allan\\onedrive\\desktop\\trabajo ptc (oficial)\\sistemagestioninventario\\capapresentasion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\capapresentasion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|solutionrelative:capapresentasion\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|c:\\users\\allan\\onedrive\\desktop\\trabajo ptc (oficial)\\sistemagestioninventario\\capapresentasion\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{212AFBDF-B3A0-41C5-A7FA-9D76B26BBB6E}|SistemaNegocio\\SistemaNegocio.csproj|C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\sistemanegocio\\sn_permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{212AFBDF-B3A0-41C5-A7FA-9D76B26BBB6E}|SistemaNegocio\\SistemaNegocio.csproj|solutionrelative:sistemanegocio\\sn_permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{311286AD-C1AC-4C40-89C9-A127871211FE}|SistemaDatos\\SistemaDatos.csproj|C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\sistemadatos\\sd_permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{311286AD-C1AC-4C40-89C9-A127871211FE}|SistemaDatos\\SistemaDatos.csproj|solutionrelative:sistemadatos\\sd_permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{212AFBDF-B3A0-41C5-A7FA-9D76B26BBB6E}|SistemaNegocio\\SistemaNegocio.csproj|C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\sistemanegocio\\sn_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{212AFBDF-B3A0-41C5-A7FA-9D76B26BBB6E}|SistemaNegocio\\SistemaNegocio.csproj|solutionrelative:sistemanegocio\\sn_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\capapresentasion\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E96ACEE5-9FBA-4800-AC2A-40B441FF9ED4}|CapaPresentasion\\SistemaPresentasion.csproj|solutionrelative:capapresentasion\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E3EAA78-48F5-4201-9798-8233FC30ECFF}|SistemaEntidades\\SistemaEntidades.csproj|C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\sistemaentidades\\permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E3EAA78-48F5-4201-9798-8233FC30ECFF}|SistemaEntidades\\SistemaEntidades.csproj|solutionrelative:sistemaentidades\\permiso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +50,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Inicio.cs",
-              "DocumentMoniker": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\CapaPresentasion\\Inicio.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\Inicio.cs",
               "RelativeDocumentMoniker": "CapaPresentasion\\Inicio.cs",
-              "ToolTip": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\CapaPresentasion\\Inicio.cs",
-              "RelativeToolTip": "CapaPresentasion\\Inicio.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAwwCMAAAAuAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\Inicio.cs*",
+              "RelativeToolTip": "CapaPresentasion\\Inicio.cs*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAgwCEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-03T23:39:00.754Z",
               "IsPinned": true,
@@ -57,23 +69,35 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SN_Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\SistemaNegocio\\SN_Usuario.cs",
-              "RelativeDocumentMoniker": "SistemaNegocio\\SN_Usuario.cs",
-              "ToolTip": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\SistemaNegocio\\SN_Usuario.cs",
-              "RelativeToolTip": "SistemaNegocio\\SN_Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Title": "Conexion.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaDatos\\Conexion.cs",
+              "RelativeDocumentMoniker": "SistemaDatos\\Conexion.cs",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaDatos\\Conexion.cs",
+              "RelativeToolTip": "SistemaDatos\\Conexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T22:03:14.38Z",
+              "WhenOpened": "2025-07-08T15:50:19.306Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Login.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\Login.cs",
+              "RelativeDocumentMoniker": "CapaPresentasion\\Login.cs",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\Login.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CapaPresentasion\\Login.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T15:00:58.403Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "SN_Permiso.cs",
-              "DocumentMoniker": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\SistemaNegocio\\SN_Permiso.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaNegocio\\SN_Permiso.cs",
               "RelativeDocumentMoniker": "SistemaNegocio\\SN_Permiso.cs",
-              "ToolTip": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\SistemaNegocio\\SN_Permiso.cs",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaNegocio\\SN_Permiso.cs",
               "RelativeToolTip": "SistemaNegocio\\SN_Permiso.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -82,51 +106,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Permiso.cs",
-              "DocumentMoniker": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\SistemaEntidades\\Permiso.cs",
-              "RelativeDocumentMoniker": "SistemaEntidades\\Permiso.cs",
-              "ToolTip": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\SistemaEntidades\\Permiso.cs",
-              "RelativeToolTip": "SistemaEntidades\\Permiso.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\App.config",
+              "RelativeDocumentMoniker": "CapaPresentasion\\App.config",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\App.config*",
+              "RelativeToolTip": "CapaPresentasion\\App.config*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-08T14:15:16.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SN_Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaNegocio\\SN_Usuario.cs",
+              "RelativeDocumentMoniker": "SistemaNegocio\\SN_Usuario.cs",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaNegocio\\SN_Usuario.cs",
+              "RelativeToolTip": "SistemaNegocio\\SN_Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T21:53:07.593Z",
+              "WhenOpened": "2025-07-04T22:03:14.38Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "SD_Permiso.cs",
-              "DocumentMoniker": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\SistemaDatos\\SD_Permiso.cs",
-              "RelativeDocumentMoniker": "SistemaDatos\\SD_Permiso.cs",
-              "ToolTip": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\SistemaDatos\\SD_Permiso.cs",
-              "RelativeToolTip": "SistemaDatos\\SD_Permiso.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAgwC8AAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T18:47:39.784Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Inicio.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\CapaPresentasion\\Inicio.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\Inicio.cs",
               "RelativeDocumentMoniker": "CapaPresentasion\\Inicio.cs",
-              "ToolTip": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\CapaPresentasion\\Inicio.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentasion\\Inicio.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\Inicio.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "CapaPresentasion\\Inicio.cs [Dise\u00F1o]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-04T00:50:23.442Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Permiso.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaEntidades\\Permiso.cs",
+              "RelativeDocumentMoniker": "SistemaEntidades\\Permiso.cs",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaEntidades\\Permiso.cs",
+              "RelativeToolTip": "SistemaEntidades\\Permiso.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T21:53:07.593Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "SD_Permiso.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaDatos\\SD_Permiso.cs",
+              "RelativeDocumentMoniker": "SistemaDatos\\SD_Permiso.cs",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\SistemaDatos\\SD_Permiso.cs",
+              "RelativeToolTip": "SistemaDatos\\SD_Permiso.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwC8AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-04T18:47:39.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\CapaPresentasion\\Login.cs",
+              "DocumentMoniker": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\Login.cs",
               "RelativeDocumentMoniker": "CapaPresentasion\\Login.cs",
-              "ToolTip": "C:\\Users\\allan\\OneDrive\\Desktop\\TRABAJO PTC (Oficial)\\SistemaGestionInventario\\CapaPresentasion\\Login.cs",
+              "ToolTip": "C:\\Users\\Estudiante\\Desktop\\Proyecto-PTC\\SistemaGestionInventario\\CapaPresentasion\\Login.cs",
               "RelativeToolTip": "CapaPresentasion\\Login.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAwwBsAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-04T00:08:42.837Z",
               "EditorCaption": ""

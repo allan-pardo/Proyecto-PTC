@@ -9,3 +9,14 @@ C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\S
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaN.5E44A36A.Up2Date
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaNegocio.dll
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaNegocio.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\bin\Debug\SistemaNegocio.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\bin\Debug\SistemaNegocio.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\bin\Debug\SistemaDatos.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\bin\Debug\SistemaEntidades.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\bin\Debug\SistemaDatos.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\bin\Debug\SistemaEntidades.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaNegocio.csproj.AssemblyReference.cache
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaN.5E44A36A.Up2Date
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaNegocio.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaNegocio.pdb

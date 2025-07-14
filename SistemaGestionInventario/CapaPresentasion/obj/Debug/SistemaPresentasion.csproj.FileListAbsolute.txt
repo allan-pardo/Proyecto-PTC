@@ -27,3 +27,32 @@ C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\C
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmReportes.resources
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmUsuarios.resources
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmVentas.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\CapaPresentasion.exe.config
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\CapaPresentasion.exe
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\CapaPresentasion.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\FontAwesome.Sharp.Material.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\FontAwesome.Sharp.Pro.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\SistemaEntidades.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\SistemaNegocio.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\SistemaDatos.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\SistemaEntidades.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\SistemaNegocio.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\bin\Debug\SistemaDatos.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\SistemaPresentasion.csproj.AssemblyReference.cache
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmCategoria.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmClientes.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmCompras.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmProducto.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmProovedores.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmReportes.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmUsuarios.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmVentas.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.Inicio.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.Login.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.Properties.Resources.resources
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\SistemaPresentasion.csproj.GenerateResource.cache
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\SistemaPresentasion.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\SistemaP.DFEEB74A.Up2Date
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.exe
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.pdb

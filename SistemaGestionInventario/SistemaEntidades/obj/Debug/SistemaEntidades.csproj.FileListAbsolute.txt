@@ -4,3 +4,9 @@ C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\S
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaEntidades\obj\Debug\SistemaEntidades.csproj.CoreCompileInputs.cache
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaEntidades\obj\Debug\SistemaEntidades.dll
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaEntidades\obj\Debug\SistemaEntidades.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaEntidades\bin\Debug\SistemaEntidades.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaEntidades\bin\Debug\SistemaEntidades.pdb
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaEntidades\obj\Debug\SistemaEntidades.csproj.AssemblyReference.cache
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaEntidades\obj\Debug\SistemaEntidades.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaEntidades\obj\Debug\SistemaEntidades.dll
+C:\Users\Estudiante\Desktop\Proyecto-PTC\SistemaGestionInventario\SistemaEntidades\obj\Debug\SistemaEntidades.pdb
