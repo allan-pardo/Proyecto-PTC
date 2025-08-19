@@ -12,6 +12,8 @@ namespace SistemaDatos
 
         public static string cadena = ConfigurationManager.ConnectionStrings["cadena_conexion"].ToString();
 
+        
 
     }
+    
 }

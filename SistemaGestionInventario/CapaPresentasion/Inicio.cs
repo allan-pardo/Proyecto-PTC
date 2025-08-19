@@ -22,8 +22,12 @@ namespace CapaPresentasion
         private static IconMenuItem Menuactivo = null;
         private static Form formularioActivo = null;
 
-        public Inicio( Usuario objusuario)
+        public Inicio( Usuario objusuario = null)
         {
+            if (objusuario == null) usuarioActual = new Usuario()
+            ;
+            else
+            
             usuarioActual = objusuario;
 
             InitializeComponent();
@@ -33,20 +37,7 @@ namespace CapaPresentasion
         {
             List<Permiso> listaPermiso = new SN_Permiso().listar(usuarioActual.idUsuario);
 
-            foreach (IconMenuItem iconMenu in Menu.MenuItems)
-            {
-
-                bool encontrado = listaPermiso.Any(m => m.nombreMenu == iconMenu.Name);
-
-                if (encontrado == false)
-                {
-                    iconMenu.Visible = false;
-                }
-                else
-                {
-                    iconMenu.Visible = true;
-                }
-            }
+            
 
             lblUsuarios.Text = usuarioActual.nombreCompleto;
 
@@ -59,7 +50,7 @@ namespace CapaPresentasion
                 Menuactivo.BackColor = Color.Salmon;
             }
 
-            menu.BackColor = Color.FromArgb(250, 60, 114);
+            menu.BackColor = Color.FromArgb(255, 136, 136);
             Menuactivo = menu;
 
 
@@ -72,7 +63,7 @@ namespace CapaPresentasion
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
-            formulario.BackColor = Color.FromArgb(250, 60, 114);
+            formulario.BackColor = Color.FromArgb(255, 136, 136);
 
             pContenedor.Controls.Add(formulario);
             formulario.Show();
@@ -144,7 +135,7 @@ namespace CapaPresentasion
 
         private void imtReportes_Click(object sender, EventArgs e)
         {
-            abrirFormularios((IconMenuItem)sender, new frmProovedores());
+            abrirFormularios((IconMenuItem)sender, new frmReportes());
         }
 
         private void pContenedor_Paint(object sender, PaintEventArgs e)
@@ -167,6 +158,9 @@ namespace CapaPresentasion
 
         }
 
-        
+        private void mspTitulo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

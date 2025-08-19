@@ -45,6 +45,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SD_Permiso.cs" />
+    <Compile Include="SD_Rol.cs" />
     <Compile Include="SD_Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

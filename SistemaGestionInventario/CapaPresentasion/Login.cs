@@ -27,9 +27,9 @@ namespace CapaPresentasion
         private void btnIngresar_Click(object sender, EventArgs e)
         {
 
-            List<Usuario> TEST = new SN_Usuario().lister();
+            List<Usuario> TEST = new SN_Usuario().listar();
 
-            Usuario ousuario = new SN_Usuario().lister().Where(u => u.documento == txtNoDocumento.Text && u.clave == txtClave.Text).FirstOrDefault();
+            Usuario ousuario = new SN_Usuario().listar().Where(u => u.documento == txtNoDocumento.Text && u.clave == txtClave.Text).FirstOrDefault();
 
             if (ousuario != null)
             {
@@ -57,6 +57,11 @@ namespace CapaPresentasion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

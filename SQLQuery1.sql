@@ -147,3 +147,113 @@ go
 --DROP TABLE Venta
 --DROP TABLE Detalle_Venta
 
+Select * from Rol
+Select * from Permiso
+Select * from Usuario
+Select * from Categoria
+Select * from Producto
+Select * from Compra
+Select * from Detalle_Compra
+Select * from Venta
+Select * from Detalle_Venta
+
+select u.idUsuario,u.Documento,u.nombreCompleto,u.correo,u.clave,u.estado,r.idRol,r.descripcion from Usuario u
+inner join Rol r on r.idRol= u.idRol
+
+update usuario set estado = 0 where idUsuario = 2
+
+
+
+--insert into Rol(descripcion) values
+--('Administrador'),
+--('Empleado')
+
+--insert into Usuario(documento,nombreCompleto,correo,clave,idRol,estado) values
+--('750394', 'Neton vega','Neton_Vega@gmail.com','123456',1,1),
+--('380495', 'Francisco','Francisco@gmail.com','987654',2,1)
+
+INSERT INTO Usuario(documento, nombreCompleto, correo, clave, idRol, estado) VALUES
+('750394', 'Neton Vega', 'neton_vega@gmail.com', '123456', 1, 1),
+('802134', 'Karen Martínez', 'karen.mtz@gmail.com', 'abc123', 2, 1),
+('912345', 'Carlos Gómez', 'carlosgomez@hotmail.com', 'clave789', 2, 0),
+('631209', 'Ana Torres', 'ana.torres@yahoo.com', 'password1', 1, 1),
+('583910', 'Luis Pérez', 'luisp@gmail.com', 'qwerty', 2, 1),
+('768230', 'Diana López', 'diana.lopez@gmail.com', 'admin2024', 1, 0),
+('704523', 'Andrés Morales', 'andresmorales@gmail.com', 'morales123', 2, 1),
+('867412', 'Sofía Rivera', 'sofia_riv@gmail.com', 'sofpass', 2, 1),
+('390172', 'Jorge Castillo', 'jorge.castillo@gmail.com', 'castillo88', 1, 1),
+('541203', 'Daniela Cruz', 'daniela.cruz@gmail.com', 'cruz001', 2, 0),
+('600412', 'Marco Díaz', 'marco.dz@gmail.com', 'marco2025', 2, 1);
+
+
+--insert into Permiso(idRol,nombreMenu) values
+--(1,'menuUsuario'),
+--(1,'menuMantenedor'),
+--(1,'menuVentas'),
+--(1,'menuCompras'),
+--(1,'menuClientes'),
+--(1,'menuProveedores'),
+--(1,'menuReportes'),
+--(1,'menuAcercaDe')
+
+--insert into Permiso(idRol,nombreMenu) values
+--(2,'menuVentas'),
+--(2,'menuCompras'),
+--(2,'menuClientes'),
+--(2,'menuProveedores'),
+--(2,'menuAcercaDe')
+
+--INSERT INTO Cliente(documento, nombreCompleto, correo, telefono, estado)
+--VALUES
+--('C001', 'Ana López', 'ana.lopez@gmail.com', '71450001', 1),
+--('C002', 'Carlos Méndez', 'carlos.mendez@gmail.com', '71450002', 1),
+--('C003', 'Lucía Rivera', 'lucia.rivera@hotmail.com', '71450003', 1),
+--('C004', 'Daniela Cruz', 'daniela.cruz@gmail.com', '71450004', 1),
+--('C005', 'José Martínez', 'jose.martinez@gmail.com', '71450005', 1),
+--('C006', 'Luis Peña', 'luis.pena@hotmail.com', '71450006', 1),
+--('C007', 'Sandra Ávila', 'sandra.avila@gmail.com', '71450007', 1),
+--('C008', 'Gloria Salinas', 'gloria.salinas@gmail.com', '71450008', 1),
+--('C009', 'María Hernández', 'maria.hernandez@hotmail.com', '71450009', 1),
+--('C010', 'Roberto Torres', 'roberto.torres@gmail.com', '71450010', 1),
+--('C011', 'Julieta Ramos', 'julieta.ramos@hotmail.com', '71450011', 1),
+--('C012', 'Cecilia Vega', 'cecilia.vega@gmail.com', '71450012', 1),
+--('C013', 'Edwin Escobar', 'edwin.escobar@gmail.com', '71450013', 1),
+--('C014', 'Valeria Domínguez', 'valeria.dom@gmail.com', '71450014', 1),
+--('C015', 'Patricia Guzmán', 'patricia.guzman@hotmail.com', '71450015', 1);
+
+
+--INSERT INTO Categoria(descripcion, estado)
+--VALUES
+--('Ramos Grandes', 1),
+--('Ramos Pequeños', 1),
+--('Flores Individuales', 1),
+--('Bolsas Decorativas', 1),
+--('Centros de Mesa', 1),
+--('Arreglos Temáticos', 1),
+--('Coronas Florales', 1),
+--('Flores Aromáticas', 1),
+--('Floreros Decorativos', 1),
+--('Cajas de Regalo con Flores', 1),
+--('Rosas Eternas', 1),
+--('Mini Arreglos', 1),
+--('Orquídeas Artificiales', 1),
+--('Tulipanes Artificiales', 1),
+--('Suculentas Decorativas', 1);
+
+--INSERT INTO Producto(codigo, nombre, descripcion, idCategoria, stock, precioCompra, precioVenta, estado, idProovedor)
+--VALUES
+--('P001', 'Ramo de Rosas Grandes', 'Rosas rojas con envoltorio elegante', 1, 25, 7.50, 14.99, 1, 1),
+--('P002', 'Ramo Pequeño de Margaritas', 'Margaritas blancas y amarillas', 2, 20, 5.00, 9.99, 1, 2),
+--('P003', 'Rosa Artificial Individual', 'Rosa de tela roja', 3, 100, 1.00, 2.50, 1, 1),
+--('P004', 'Bolsa Decorativa Mediana', 'Diseño floral, ideal para regalo', 4, 50, 1.20, 2.99, 1, 3),
+--('P005', 'Centro de Mesa Clásico', 'Flores surtidas en base de vidrio', 5, 15, 10.00, 19.99, 1, 2),
+--('P006', 'Arreglo Día de la Madre', 'Especial temático con rosas', 6, 10, 12.00, 24.99, 1, 1),
+--('P007', 'Corona Fúnebre Blanca', 'Con flores artificiales y base circular', 7, 5, 15.00, 29.99, 1, 3),
+--('P008', 'Flor Aromática de Lavanda', 'Flor sintética perfumada', 8, 40, 2.00, 4.99, 1, 2),
+--('P009', 'Florero Decorativo de Cristal', 'Florero para arreglos medianos', 9, 30, 3.50, 7.50, 1, 1),
+--('P010', 'Caja con Flores Artificiales', 'Caja elegante con rosas eternas', 10, 12, 8.00, 16.50, 1, 2),
+--('P011', 'Rosa Eterna Azul', 'Rosa sintética encapsulada', 11, 10, 5.00, 12.99, 1, 1),
+--('P012', 'Mini Arreglo Floral', 'Perfecto para escritorio', 12, 25, 2.50, 5.99, 1, 3),
+--('P013', 'Orquídea Artificial Blanca', 'Orquídea de gran detalle', 13, 18, 6.00, 11.99, 1, 2),
+--('P014', 'Tulipán Amarillo Artificial', 'Tulipán de tela de alta calidad', 14, 50, 2.00, 4.49, 1, 1),
+--('P015', 'Suculenta Decorativa Pequeña', 'Maceta con suculenta sintética', 15, 60, 1.50, 3.99, 1, 2);

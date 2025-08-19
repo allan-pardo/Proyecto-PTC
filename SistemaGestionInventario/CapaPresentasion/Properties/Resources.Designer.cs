@@ -83,6 +83,16 @@ namespace CapaPresentasion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_check_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_check_20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_flower_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-flower-100", resourceCulture);
@@ -96,6 +106,16 @@ namespace CapaPresentasion.Properties {
         internal static System.Drawing.Bitmap icons8_flower_100__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-flower-100 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_trash_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_trash_20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

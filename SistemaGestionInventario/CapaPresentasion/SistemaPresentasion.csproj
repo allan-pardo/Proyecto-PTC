@@ -133,6 +133,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\opcionCombo.cs" />
     <EmbeddedResource Include="frmCategoria.resx">
       <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,9 +212,18 @@
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
+    <None Include="Resources\icons8-check-20.png" />
+    <None Include="Resources\icons8-trash-20.png" />
+    <None Include="Resources\check-32.png" />
+    <None Include="Resources\icons8-trash-48.png" />
+    <None Include="Resources\icons8-check-48.png" />
     <None Include="Resources\icons8-warehouse-64.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SistemaDatos\SistemaDatos.csproj">
+      <Project>{311286ad-c1ac-4c40-89c9-a127871211fe}</Project>
+      <Name>SistemaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SistemaEntidades\SistemaEntidades.csproj">
       <Project>{9e3eaa78-48f5-4201-9798-8233fc30ecff}</Project>
       <Name>SistemaEntidades</Name>
