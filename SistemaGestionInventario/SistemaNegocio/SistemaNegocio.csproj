@@ -42,9 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SN_Categoria.cs" />
+    <Compile Include="SN_Clientes.cs" />
+    <Compile Include="SN_Compra.cs" />
+    <Compile Include="SN_Negocio.cs" />
     <Compile Include="SN_Permiso.cs" />
+    <Compile Include="SN_Producto.cs" />
+    <Compile Include="SN_Proovedor.cs" />
+    <Compile Include="SN_Reporte.cs" />
     <Compile Include="SN_Rol.cs" />
     <Compile Include="SN_Usuario.cs" />
+    <Compile Include="SN_Venta.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SistemaDatos\SistemaDatos.csproj">

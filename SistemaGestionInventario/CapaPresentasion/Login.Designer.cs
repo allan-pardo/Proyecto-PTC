@@ -78,6 +78,8 @@
             this.txtNoDocumento.Name = "txtNoDocumento";
             this.txtNoDocumento.Size = new System.Drawing.Size(208, 20);
             this.txtNoDocumento.TabIndex = 7;
+            this.txtNoDocumento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNoDocumento_KeyDown);
+            this.txtNoDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoDocumento_KeyPress);
             // 
             // txtClave
             // 
@@ -86,6 +88,8 @@
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(208, 20);
             this.txtClave.TabIndex = 8;
+            this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
+            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
             // 
             // label2
             // 

@@ -26,26 +26,26 @@ namespace CapaPresentasion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
-            List<Usuario> TEST = new SN_Usuario().listar();
-
             Usuario ousuario = new SN_Usuario().listar().Where(u => u.documento == txtNoDocumento.Text && u.clave == txtClave.Text).FirstOrDefault();
+
 
             if (ousuario != null)
             {
+
                 Inicio form = new Inicio(ousuario);
 
                 form.Show();
                 this.Hide();
 
                 form.FormClosing += frm_closing;
+
             }
             else
             {
-                MessageBox.Show("Usuario o clave incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("no se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-            
+
         }
         private void frm_closing(object sender, FormClosingEventArgs e) {
 
@@ -62,6 +62,48 @@ namespace CapaPresentasion
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNoDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (!char.IsControl(e.KeyChar) && txtNoDocumento.Text.Length >= 6)
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (!char.IsControl(e.KeyChar) && txtClave.Text.Length >= 6)
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true; 
+            }
+        }
+
+        private void txtNoDocumento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

@@ -135,6 +135,16 @@ fechaRegistro datetime default getdate()
 
 go
 
+create table Negocio(
+idNegocio int primary key,
+nombre varchar(60),
+RUC varchar(60),
+direccion varchar(60),
+logo varbinary(max) NULL
+)
+
+go
+--Drop table NEGOCIO
 --DROP TABLE Rol
 --DROP TABLE Permiso
 --DROP TABLE Proovedor
@@ -149,8 +159,10 @@ go
 
 Select * from Rol
 Select * from Permiso
+Select * from Negocio
 Select * from Usuario
 Select * from Categoria
+select * from Proovedor
 Select * from Producto
 Select * from Compra
 Select * from Detalle_Compra
@@ -162,7 +174,8 @@ inner join Rol r on r.idRol= u.idRol
 
 update usuario set estado = 0 where idUsuario = 2
 
-
+--insert into Negocio(idNegocio,nombre,RUC,direccion) values
+--(1,'Milys Garden','345678','8av, norte')
 
 --insert into Rol(descripcion) values
 --('Administrador'),
@@ -171,6 +184,9 @@ update usuario set estado = 0 where idUsuario = 2
 --insert into Usuario(documento,nombreCompleto,correo,clave,idRol,estado) values
 --('750394', 'Neton vega','Neton_Vega@gmail.com','123456',1,1),
 --('380495', 'Francisco','Francisco@gmail.com','987654',2,1)
+
+--insert into Proovedor(documento,razonSocial,correo,telefono,estado) values ('202503','Vender','SaulSajun@gmail.com','2939 3942',1)
+
 
 INSERT INTO Usuario(documento, nombreCompleto, correo, clave, idRol, estado) VALUES
 ('750394', 'Neton Vega', 'neton_vega@gmail.com', '123456', 1, 1),
@@ -246,7 +262,7 @@ INSERT INTO Usuario(documento, nombreCompleto, correo, clave, idRol, estado) VAL
 --('P002', 'Ramo Pequeño de Margaritas', 'Margaritas blancas y amarillas', 2, 20, 5.00, 9.99, 1, 2),
 --('P003', 'Rosa Artificial Individual', 'Rosa de tela roja', 3, 100, 1.00, 2.50, 1, 1),
 --('P004', 'Bolsa Decorativa Mediana', 'Diseño floral, ideal para regalo', 4, 50, 1.20, 2.99, 1, 3),
---('P005', 'Centro de Mesa Clásico', 'Flores surtidas en base de vidrio', 5, 15, 10.00, 19.99, 1, 2),
+--('P005', 'Centro de Mesa Clásico', 'Flores surtidas en base de vidrio', 5, 15, 10.00, 19.99, 1, 2)
 --('P006', 'Arreglo Día de la Madre', 'Especial temático con rosas', 6, 10, 12.00, 24.99, 1, 1),
 --('P007', 'Corona Fúnebre Blanca', 'Con flores artificiales y base circular', 7, 5, 15.00, 29.99, 1, 3),
 --('P008', 'Flor Aromática de Lavanda', 'Flor sintética perfumada', 8, 40, 2.00, 4.99, 1, 2),
@@ -257,3 +273,15 @@ INSERT INTO Usuario(documento, nombreCompleto, correo, clave, idRol, estado) VAL
 --('P013', 'Orquídea Artificial Blanca', 'Orquídea de gran detalle', 13, 18, 6.00, 11.99, 1, 2),
 --('P014', 'Tulipán Amarillo Artificial', 'Tulipán de tela de alta calidad', 14, 50, 2.00, 4.49, 1, 1),
 --('P015', 'Suculenta Decorativa Pequeña', 'Maceta con suculenta sintética', 15, 60, 1.50, 3.99, 1, 2);
+
+INSERT INTO Producto (codigo, nombre, descripcion, idCategoria, stock, precioCompra, precioVenta, estado)
+VALUES
+('ARTF001', 'Rosa Artificial Roja', 'Rosa de tela roja con tallo flexible', 7, 100, 0.80, 2.50, 1),
+('ARTF002', 'Orquídea Artificial Blanca', 'Orquídea de plástico premium con maceta pequeña', 5, 60, 3.50, 7.00, 1),
+('ARRA001', 'Ramo Decorativo de Tulipanes', 'Ramo de 10 tulipanes artificiales en tonos variados', 6, 25, 6.00, 12.00, 1),
+('ARRA002', 'Centro de Mesa con Flores Artificiales', 'Arreglo en base de cerámica con margaritas y follaje artificial', 7, 15, 8.00, 18.00, 1),
+('DECO001', 'Jarrón Decorativo Moderno', 'Jarrón alto de vidrio para arreglos artificiales', 8, 30, 4.00, 9.00, 1)
+
+select*from Producto
+select idCategoria from Categoria
+select idCategoria,descripcion from Categoria

@@ -8,6 +8,7 @@ namespace SistemaEntidades
 {
     public class Cliente
     {
+
         public int idCliente { get; set; }
         public string documento { get; set; }
         public string nombreCompleto { get; set; }

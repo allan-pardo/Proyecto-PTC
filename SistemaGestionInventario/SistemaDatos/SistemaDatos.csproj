@@ -42,11 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SD_Categoria.cs" />
+    <Compile Include="SD_Clientes.cs" />
+    <Compile Include="SD_Compra.cs" />
+    <Compile Include="SD_Negocio.cs" />
+    <Compile Include="SD_Producto.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SD_Permiso.cs" />
+    <Compile Include="SD_Proovedor.cs" />
+    <Compile Include="SD_Reporte.cs" />
     <Compile Include="SD_Rol.cs" />
     <Compile Include="SD_Usuario.cs" />
+    <Compile Include="SD_Venta.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SistemaEntidades\SistemaEntidades.csproj">

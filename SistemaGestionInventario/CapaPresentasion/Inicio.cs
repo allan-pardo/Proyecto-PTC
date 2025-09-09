@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaDatos;
 
 using SistemaEntidades;
 using SistemaNegocio;
@@ -24,24 +25,23 @@ namespace CapaPresentasion
 
         public Inicio( Usuario objusuario = null)
         {
-            if (objusuario == null) usuarioActual = new Usuario()
-            ;
+            if (objusuario == null)
+                usuarioActual = new Usuario() { nombreCompleto = "Neton Vega", idUsuario = 1 };
             else
-            
-            usuarioActual = objusuario;
+                usuarioActual = objusuario;
 
             InitializeComponent();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            List<Permiso> listaPermiso = new SN_Permiso().listar(usuarioActual.idUsuario);
 
-            
+            List<Permiso> listaPermiso = new SN_Permiso().listar(usuarioActual.idUsuario);
 
             lblUsuarios.Text = usuarioActual.nombreCompleto;
 
         }
+        
 
         private void abrirFormularios(IconMenuItem menu, Form formulario)
         {
@@ -96,7 +96,7 @@ namespace CapaPresentasion
 
         private void imtSubMenuRegistrarVentas_Click(object sender, EventArgs e)
         {
-            abrirFormularios(imtVentas, new frmVentas());
+            abrirFormularios((IconMenuItem)sender, new frmVentas(usuarioActual));
         }
 
         private void imtSubMenuVerDetalleVentas_Click(object sender, EventArgs e)
@@ -113,7 +113,7 @@ namespace CapaPresentasion
         }
         private void imtSubMenuRegistrarCompra_Click(object sender, EventArgs e)
         {
-            abrirFormularios(imtComprar, new frmCompras());
+            abrirFormularios((IconMenuItem)sender, new frmCompras(usuarioActual));
         }
 
         private void imtSubMenuVerDetalleCompra_Click(object sender, EventArgs e)
@@ -133,10 +133,26 @@ namespace CapaPresentasion
             abrirFormularios((IconMenuItem)sender, new frmProovedores());
         }
 
+
+
+        /*--------------------Esta es las subs categorias de Reportes--------------------*/
         private void imtReportes_Click(object sender, EventArgs e)
         {
-            abrirFormularios((IconMenuItem)sender, new frmReportes());
+ 
         }
+
+        private void imtSubMenuReporteVenta_Click(object sender, EventArgs e)
+        {
+            abrirFormularios(imtReportes, new frmReporteVentas());
+        }
+
+        private void imtSubMenuReporteCompra_Click(object sender, EventArgs e)
+        {
+            abrirFormularios(imtReportes, new frmReporteCompras());
+        }
+        /*-----------------------------------------------------------------------------*/
+
+
 
         private void pContenedor_Paint(object sender, PaintEventArgs e)
         {
@@ -162,5 +178,17 @@ namespace CapaPresentasion
         {
 
         }
+
+        private void lblUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imtSubMenuNegocio_Click(object sender, EventArgs e)
+        {
+            abrirFormularios(imtMantenedor, new frmNegocio());
+        }
+
+        
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using CapaPresentasion.Utilidades;
 using SistemaEntidades;
 using SistemaNegocio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CapaPresentasion
 {
@@ -19,6 +20,9 @@ namespace CapaPresentasion
         public frmUsuarios()
         {
             InitializeComponent();
+
+            this.MinimumSize = new Size(800, 600);
+            this.MaximumSize = new Size(1920, 1080);
         }
 
         private void frmUsuarios_Load(object sender, EventArgs e)
@@ -31,16 +35,22 @@ namespace CapaPresentasion
             cboEstado.ValueMember = "valor";
             cboEstado.SelectedIndex = 0 ;
 
+
             List<Rol> listaRol = new SN_Rol().listar();
+
+            List<opcionCombo> listaOpciones = new List<opcionCombo>();
 
             foreach (Rol item in listaRol)
             {
-                cboRol.Items.Add(new opcionCombo() { valor = item.idRol, texto = item.descripcion });
+                listaOpciones.Add(new opcionCombo() { valor = item.idRol, texto = item.descripcion });
             }
 
+            cboRol.DataSource = listaOpciones;
             cboRol.DisplayMember = "texto";
             cboRol.ValueMember = "valor";
-            cboRol.SelectedIndex = 0;
+
+            if (cboRol.Items.Count > 0)
+                cboRol.SelectedIndex = 0;
 
 
             foreach (DataGridViewColumn columna in dgvData.Columns)
@@ -81,6 +91,7 @@ namespace CapaPresentasion
                 correo = txtCorreo.Text,
                 clave = txtContraseña.Text,
                 oRol = new Rol() { idRol = Convert.ToInt32(((opcionCombo)cboRol.SelectedItem).valor) },
+               
                 estado = Convert.ToInt32(((opcionCombo)cboEstado.SelectedItem).valor) == 1 ? true : false
             };
 
@@ -232,7 +243,7 @@ namespace CapaPresentasion
                     {
                         idUsuario = Convert.ToInt32(txtId.Text)
                     };
-
+                    //todavia no funciona
                     bool respuesta = new SN_Usuario().Eliminar(objUsuario, out Mensaje);
                     if (respuesta)
                     {
@@ -241,6 +252,26 @@ namespace CapaPresentasion
                     else
                     {
                         MessageBox.Show(Mensaje,"Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            string columnafiltrar = ((opcionCombo)cboBusqueda.SelectedItem).valor.ToString();
+
+            if (dgvData.Rows.Count > 0)
+            {
+                foreach(DataGridViewRow row in dgvData.Rows)
+                {
+
+                    if (row.Cells [columnafiltrar].Value.ToString().Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()))
+                    row.Visible = true;
+                    else 
+                    {
+                        row.Visible = false;
                     }
                 }
             }
@@ -259,6 +290,166 @@ namespace CapaPresentasion
 
         }
 
-        
+        private void btnLimpiarBuscador_Click(object sender, EventArgs e)
+        {
+            txtBusqueda.Text = "";
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                row.Visible = true;
+            }
+        }
+
+        private void cboRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNroDocumento_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtConfirmarContraseña_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNroDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (!char.IsControl(e.KeyChar) && txtNroDocumento.Text.Length >= 6)
+            {
+                e.Handled = true; 
+            }
+
+
+        }
+
+        private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && txtCorreo.Text.Length >= 40)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombreCompleto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsControl(e.KeyChar) && txtNombreCompleto.Text.Length >= 30)
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (!char.IsControl(e.KeyChar) && txtContraseña.Text.Length >= 6)
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtConfirmarContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (!char.IsControl(e.KeyChar) && txtConfirmarContraseña.Text.Length >= 6)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && txtBusqueda.Text.Length >= 50)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNroDocumento_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtNombreCompleto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCorreo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtContraseña_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtConfirmarContraseña_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtBusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
