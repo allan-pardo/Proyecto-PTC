@@ -9,3 +9,15 @@ C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\S
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaN.5E44A36A.Up2Date
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaNegocio.dll
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\obj\Debug\SistemaNegocio.pdb
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\System.Buffers.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\System.Memory.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\System.Buffers.xml
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\System.Memory.xml
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\CapaServicios.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\SistemaNegocio\bin\Debug\CapaServicios.pdb

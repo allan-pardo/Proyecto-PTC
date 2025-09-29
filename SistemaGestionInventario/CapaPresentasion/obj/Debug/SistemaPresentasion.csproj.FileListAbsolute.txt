@@ -95,3 +95,8 @@ C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\C
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmReporteCompras.resources
 C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmReporteVentas.resources
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\obj\Debug\CapaPresentasion.frmRecuperarContraseña.resources
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\bin\Debug\CapaServicios.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaPresentasion\bin\Debug\CapaServicios.pdb

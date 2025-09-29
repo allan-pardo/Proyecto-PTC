@@ -115,44 +115,27 @@ namespace SistemaDatos
         public bool Editar(Usuario obj, out string Mensaje)
         {
 
-            bool respuesta = false;
             Mensaje = string.Empty;
-
-            try
+            using (var cn = new SqlConnection(Conexion.cadena))
             {
+                cn.Open();
+                var cmd = new SqlCommand(
+                    @"UPDATE Usuario
+              SET Documento=@doc, nombreCompleto=@nom, correo=@cor,
+                  clave=@clave, idRol=@rol, estado=@est
+              WHERE idUsuario=@id", cn);
 
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-                {
+                cmd.Parameters.AddWithValue("@doc", obj.documento);
+                cmd.Parameters.AddWithValue("@nom", obj.nombreCompleto);
+                cmd.Parameters.AddWithValue("@cor", obj.correo);
+                cmd.Parameters.AddWithValue("@clave", obj.clave); // ya viene hash o el actual
+                cmd.Parameters.AddWithValue("@rol", obj.oRol.idRol);
+                cmd.Parameters.AddWithValue("@est", obj.estado);
+                cmd.Parameters.AddWithValue("@id", obj.idUsuario);
 
-
-                    SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", oconexion);
-                    cmd.Parameters.AddWithValue("idUsuario", obj.idUsuario);
-                    cmd.Parameters.AddWithValue("Documento", obj.documento);
-                    cmd.Parameters.AddWithValue("NombreCompleto", obj.nombreCompleto);
-                    cmd.Parameters.AddWithValue("Correo", obj.correo);
-                    cmd.Parameters.AddWithValue("Clave", obj.clave);
-                    cmd.Parameters.AddWithValue("idRol", obj.oRol.idRol);
-                    cmd.Parameters.AddWithValue("Estado", obj.estado);
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,500).Direction = ParameterDirection.Output;
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    oconexion.Open();
-
-                    cmd.ExecuteNonQuery();
-
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
-                }
-
+                try { return cmd.ExecuteNonQuery() > 0; }
+                catch (Exception ex) { Mensaje = ex.Message; return false; }
             }
-            catch (Exception ex)
-            {
-                respuesta = false;
-                Mensaje = ex.Message;
-            }
-
-            return respuesta;
 
         }
 
@@ -193,6 +176,50 @@ namespace SistemaDatos
             return respuesta;
 
         }
+
+        public Usuario ObtenerPorDocumento(string documentoOEmail)
+        {
+            using (var cn = new SqlConnection(Conexion.cadena))
+            using (var cmd = new SqlCommand(@"
+                SELECT TOP 1 u.idUsuario,u.documento,u.nombreCompleto,u.correo,u.clave,u.estado,
+               r.idRol,r.descripcion
+                FROM Usuario u
+                INNER JOIN Rol r ON r.idRol=u.idRol
+                WHERE u.documento=@u OR u.correo=@u", cn))
+            {
+                cmd.Parameters.AddWithValue("@u", documentoOEmail?.Trim() ?? "");
+                cn.Open();
+                using (var dr = cmd.ExecuteReader())
+                {
+                    if (!dr.Read()) return null;
+                    return new Usuario
+                    {
+                        idUsuario = Convert.ToInt32(dr["idUsuario"]),
+                        documento = dr["documento"].ToString(),
+                        nombreCompleto = dr["nombreCompleto"].ToString(),
+                        correo = dr["correo"].ToString(),
+                        clave = dr["clave"].ToString(), // HASH Bcrypt
+                        estado = Convert.ToBoolean(dr["estado"]),
+                        oRol = new Rol { idRol = Convert.ToInt32(dr["idRol"]), descripcion = dr["descripcion"].ToString() }
+                    };
+                }
+            }
+        }
+
+        // Útil para migración o para cuando el admin cambie la clave:
+        public void ActualizarClave(int idUsuario, string nuevoHash)
+        {
+            using (var cn = new SqlConnection(Conexion.cadena))
+            using (var cmd = new SqlCommand("UPDATE Usuario SET clave=@h WHERE idUsuario=@id", cn))
+            {
+                cmd.Parameters.Add("@h", SqlDbType.VarChar, 60).Value = nuevoHash; // BCrypt = 60
+                cmd.Parameters.AddWithValue("@id", idUsuario);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+        }
+
 
     }
 }

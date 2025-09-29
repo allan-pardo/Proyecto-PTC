@@ -25,6 +25,18 @@ namespace CapaPresentasion
             this.MaximumSize = new Size(1920, 1080);
         }
 
+        private void CargarUsuarioEnFormulario(Usuario u)
+        {
+            txtId.Text = u.idUsuario.ToString();
+            txtNroDocumento.Text = u.documento;
+            txtNombreCompleto.Text = u.nombreCompleto;
+            txtCorreo.Text = u.correo;
+            // Mostrar el HASH en el textbox:
+            txtContraseña.Text = u.clave;            // <- el hash tal cual
+                                                     // txtContraseña.UseSystemPasswordChar = false; // opcional si quieres VER el hash
+                                                     // combos de rol/estado...
+        }
+
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
 
@@ -33,7 +45,7 @@ namespace CapaPresentasion
 
             cboEstado.DisplayMember = "texto";
             cboEstado.ValueMember = "valor";
-            cboEstado.SelectedIndex = 0 ;
+            cboEstado.SelectedIndex = 0;
 
 
             List<Rol> listaRol = new SN_Rol().listar();
@@ -57,7 +69,7 @@ namespace CapaPresentasion
             {
                 if (columna.Visible == true && columna.Name != "btnSeleccionar")
                 {
-                    cboBusqueda.Items.Add(new opcionCombo() { valor  = columna.Name, texto = columna.HeaderText });
+                    cboBusqueda.Items.Add(new opcionCombo() { valor = columna.Name, texto = columna.HeaderText });
                 }
 
                 cboBusqueda.DisplayMember = "texto";
@@ -74,24 +86,25 @@ namespace CapaPresentasion
                 item.oRol.idRol,
                 item.oRol.descripcion,
                 item.estado == true ? 1 : 0,
-                item.estado == true ? "Activo" : "No activo" 
+                item.estado == true ? "Activo" : "No activo"
                 });
             }
 
-          
+
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string Mensaje = string.Empty;
 
-            Usuario objUsuario = new Usuario() 
-            { idUsuario = Convert.ToInt32(txtId.Text), 
+            Usuario objUsuario = new Usuario()
+            {
+                idUsuario = Convert.ToInt32(txtId.Text),
                 documento = txtNroDocumento.Text,
                 nombreCompleto = txtNombreCompleto.Text,
                 correo = txtCorreo.Text,
                 clave = txtContraseña.Text,
                 oRol = new Rol() { idRol = Convert.ToInt32(((opcionCombo)cboRol.SelectedItem).valor) },
-               
+
                 estado = Convert.ToInt32(((opcionCombo)cboEstado.SelectedItem).valor) == 1 ? true : false
             };
 
@@ -120,19 +133,26 @@ namespace CapaPresentasion
                     MessageBox.Show(Mensaje);
                 }
             }
-            else 
-            { 
+            else // EDITAR
+            {
+                // Pasa lo que haya en el textbox: hash, plano o vacío
+                objUsuario.clave = txtContraseña.Text;
+
                 bool resultado = new SN_Usuario().Editar(objUsuario, out Mensaje);
 
-                if (resultado) 
+                if (resultado)
                 {
-                    DataGridViewRow row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
-
+                    var row = dgvData.Rows[Convert.ToInt32(txtIndice.Text)];
                     row.Cells["id"].Value = txtId.Text;
                     row.Cells["Documento"].Value = txtNroDocumento.Text;
                     row.Cells["nombreCompleto"].Value = txtNombreCompleto.Text;
                     row.Cells["correo"].Value = txtCorreo.Text;
-                    row.Cells["clave"].Value = txtContraseña.Text;
+
+                    // No mostrar la contraseña (recomendado):
+                    row.Cells["clave"].Value = objUsuario.clave;
+                    // Si quieres ver el hash en la celda, podrías usar:
+                    // row.Cells["clave"].Value = objUsuario.clave;
+
                     row.Cells["idRol"].Value = ((opcionCombo)cboRol.SelectedItem).valor.ToString();
                     row.Cells["Rol"].Value = ((opcionCombo)cboRol.SelectedItem).texto.ToString();
                     row.Cells["EstadoValor"].Value = ((opcionCombo)cboEstado.SelectedItem).valor.ToString();
@@ -144,9 +164,11 @@ namespace CapaPresentasion
                 {
                     MessageBox.Show(Mensaje);
                 }
-            }
 
+            }
         }
+
+
 
         private void Limpiar()
         {
@@ -204,7 +226,7 @@ namespace CapaPresentasion
 
                     foreach (opcionCombo oc in cboRol.Items)
                     {
-                        if (Convert.ToInt32(oc.valor) == Convert.ToInt32 (dgvData.Rows[indice].Cells["idRol"].Value))
+                        if (Convert.ToInt32(oc.valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["idRol"].Value))
                         {
                             int indice_Combo = cboRol.Items.IndexOf(oc);
                             cboRol.SelectedIndex = indice_Combo;
@@ -233,9 +255,9 @@ namespace CapaPresentasion
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
-            if (Convert.ToInt32(txtId.Text) != 0) 
+            if (Convert.ToInt32(txtId.Text) != 0)
             {
-                if (MessageBox.Show("¿Deseas eliminar este usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
+                if (MessageBox.Show("¿Deseas eliminar este usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     string Mensaje = string.Empty;
 
@@ -251,7 +273,7 @@ namespace CapaPresentasion
                     }
                     else
                     {
-                        MessageBox.Show(Mensaje,"Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show(Mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
             }
@@ -264,12 +286,12 @@ namespace CapaPresentasion
 
             if (dgvData.Rows.Count > 0)
             {
-                foreach(DataGridViewRow row in dgvData.Rows)
+                foreach (DataGridViewRow row in dgvData.Rows)
                 {
 
-                    if (row.Cells [columnafiltrar].Value.ToString().Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()))
-                    row.Visible = true;
-                    else 
+                    if (row.Cells[columnafiltrar].Value.ToString().Trim().ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()))
+                        row.Visible = true;
+                    else
                     {
                         row.Visible = false;
                     }
@@ -283,7 +305,7 @@ namespace CapaPresentasion
 
         }
 
-        
+
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -330,7 +352,7 @@ namespace CapaPresentasion
             }
             if (!char.IsControl(e.KeyChar) && txtNroDocumento.Text.Length >= 6)
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
 
 
@@ -450,6 +472,33 @@ namespace CapaPresentasion
             {
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var fila = dgvData.Rows[e.RowIndex];
+
+                // Opción A: reconstruir el objeto desde la fila (si tienes todas las columnas)
+                var u = new Usuario
+                {
+                    idUsuario = Convert.ToInt32(fila.Cells["id"].Value),
+                    documento = fila.Cells["Documento"].Value?.ToString(),
+                    nombreCompleto = fila.Cells["nombreCompleto"].Value?.ToString(),
+                    correo = fila.Cells["correo"].Value?.ToString(),
+                    // si en la grilla NO muestras la clave, recupérala de BD:
+                    // clave = fila.Cells["clave"].Value?.ToString(),
+                    oRol = new Rol { idRol = Convert.ToInt32(fila.Cells["idRol"].Value) },
+                    estado = fila.Cells["EstadoValor"].Value?.ToString() == "1"
+                };
+
+                // Opción B (recomendada): cargar desde BD por id o documento
+                // var u = new SN_Usuario().ObtenerPorDocumento(fila.Cells["Documento"].Value.ToString());
+
+                CargarUsuarioEnFormulario(u);
+            }
+
         }
     }
 }

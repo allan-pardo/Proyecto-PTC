@@ -31,9 +31,7 @@ namespace CapaPresentasion.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-
-        public static object PlantillaCompra { get; internal set; }
-
+        
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
@@ -138,6 +136,16 @@ namespace CapaPresentasion.Properties {
         internal static System.Drawing.Bitmap logo_milis_garden {
             get {
                 object obj = ResourceManager.GetObject("logo milis garden", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Negoci {
+            get {
+                object obj = ResourceManager.GetObject("Negoci", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

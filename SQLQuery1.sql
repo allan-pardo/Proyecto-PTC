@@ -174,6 +174,9 @@ inner join Rol r on r.idRol= u.idRol
 
 update usuario set estado = 0 where idUsuario = 2
 
+ALTER TABLE Usuario ALTER COLUMN clave VARCHAR(60) NOT NULL;
+ALTER TABLE Usuario ADD debeCambiarClave BIT NOT NULL DEFAULT(0);
+
 --insert into Negocio(idNegocio,nombre,RUC,direccion) values
 --(1,'Milys Garden','345678','8av, norte')
 

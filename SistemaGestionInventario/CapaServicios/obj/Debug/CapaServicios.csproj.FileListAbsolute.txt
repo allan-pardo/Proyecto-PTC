@@ -1,0 +1,6 @@
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaServicios\bin\Debug\CapaServicios.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaServicios\bin\Debug\CapaServicios.pdb
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaServicios\obj\Debug\CapaServicios.csproj.AssemblyReference.cache
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaServicios\obj\Debug\CapaServicios.csproj.CoreCompileInputs.cache
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaServicios\obj\Debug\CapaServicios.dll
+C:\Users\allan\OneDrive\Desktop\TRABAJO PTC (Oficial)\SistemaGestionInventario\CapaServicios\obj\Debug\CapaServicios.pdb

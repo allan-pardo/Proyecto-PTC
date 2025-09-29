@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCrypt.Net;
 
 using SistemaEntidades;
 using SistemaNegocio;
@@ -26,19 +27,15 @@ namespace CapaPresentasion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario ousuario = new SN_Usuario().listar().Where(u => u.documento == txtNoDocumento.Text && u.clave == txtClave.Text).FirstOrDefault();
-
+            var cn = new SN_Usuario();
+            var ousuario = cn.Login(txtNoDocumento.Text.Trim(), txtClave.Text.Trim());
 
             if (ousuario != null)
             {
-
                 Inicio form = new Inicio(ousuario);
-
+                form.FormClosing += frm_closing;
                 form.Show();
                 this.Hide();
-
-                form.FormClosing += frm_closing;
-
             }
             else
             {
@@ -79,14 +76,6 @@ namespace CapaPresentasion
 
         private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            if (!char.IsControl(e.KeyChar) && txtClave.Text.Length >= 6)
-            {
-                e.Handled = true;
-            }
 
         }
 
@@ -103,6 +92,25 @@ namespace CapaPresentasion
             if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
             {
                 e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnIngresarLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOlviCuenta_Click(object sender, EventArgs e)
+        {
+            using (var modal = new frmRecuperarContraseña())
+            {
+                var result = modal.ShowDialog();
+
             }
         }
     }
