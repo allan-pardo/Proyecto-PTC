@@ -36,7 +36,7 @@
             // lblNumeroDoc
             // 
             this.lblNumeroDoc.AutoSize = true;
-            this.lblNumeroDoc.BackColor = System.Drawing.Color.DarkViolet;
+            this.lblNumeroDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(45)))), ((int)(((byte)(144)))));
             this.lblNumeroDoc.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumeroDoc.Location = new System.Drawing.Point(35, 47);
             this.lblNumeroDoc.Name = "lblNumeroDoc";
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkViolet;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(45)))), ((int)(((byte)(144)))));
             this.ClientSize = new System.Drawing.Size(408, 265);
             this.Controls.Add(this.btnRecuperarContra);
             this.Controls.Add(this.lblNumeroDoc);

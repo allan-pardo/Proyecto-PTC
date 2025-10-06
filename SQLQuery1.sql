@@ -144,18 +144,8 @@ logo varbinary(max) NULL
 )
 
 go
---Drop table NEGOCIO
---DROP TABLE Rol
---DROP TABLE Permiso
---DROP TABLE Proovedor
---DROP TABLE Cliente
---DROP TABLE Usuario
---DROP TABLE Categoria
---DROP TABLE Producto
---DROP TABLE Compra
---DROP TABLE Detalle_Compra
---DROP TABLE Venta
---DROP TABLE Detalle_Venta
+
+------- Con estos comandos puede ver  todas las tablas o una por una segun el nombre de la tabla que desee ver------
 
 Select * from Rol
 Select * from Permiso
@@ -169,6 +159,9 @@ Select * from Detalle_Compra
 Select * from Venta
 Select * from Detalle_Venta
 
+----------------------------------------------------------------------------------------------------------------------
+
+------------------------------------ INGRESAR DESPUES DE EJECUTAR LAS TABLAS -------------------------------------
 select u.idUsuario,u.Documento,u.nombreCompleto,u.correo,u.clave,u.estado,r.idRol,r.descripcion from Usuario u
 inner join Rol r on r.idRol= u.idRol
 
@@ -176,6 +169,10 @@ update usuario set estado = 0 where idUsuario = 2
 
 ALTER TABLE Usuario ALTER COLUMN clave VARCHAR(60) NOT NULL;
 ALTER TABLE Usuario ADD debeCambiarClave BIT NOT NULL DEFAULT(0);
+
+--------------------------------------------------------------------------------------------------
+
+---------------------------------------INGRESAR POR ORDEN, NO INTENTE INGRESARLOS AL AZAR--------------------------
 
 --insert into Negocio(idNegocio,nombre,RUC,direccion) values
 --(1,'Milys Garden','345678','8av, norte')
@@ -263,19 +260,8 @@ INSERT INTO Usuario(documento, nombreCompleto, correo, clave, idRol, estado) VAL
 --VALUES
 --('P001', 'Ramo de Rosas Grandes', 'Rosas rojas con envoltorio elegante', 1, 25, 7.50, 14.99, 1, 1),
 --('P002', 'Ramo Pequeño de Margaritas', 'Margaritas blancas y amarillas', 2, 20, 5.00, 9.99, 1, 2),
---('P003', 'Rosa Artificial Individual', 'Rosa de tela roja', 3, 100, 1.00, 2.50, 1, 1),
---('P004', 'Bolsa Decorativa Mediana', 'Diseño floral, ideal para regalo', 4, 50, 1.20, 2.99, 1, 3),
---('P005', 'Centro de Mesa Clásico', 'Flores surtidas en base de vidrio', 5, 15, 10.00, 19.99, 1, 2)
---('P006', 'Arreglo Día de la Madre', 'Especial temático con rosas', 6, 10, 12.00, 24.99, 1, 1),
---('P007', 'Corona Fúnebre Blanca', 'Con flores artificiales y base circular', 7, 5, 15.00, 29.99, 1, 3),
---('P008', 'Flor Aromática de Lavanda', 'Flor sintética perfumada', 8, 40, 2.00, 4.99, 1, 2),
---('P009', 'Florero Decorativo de Cristal', 'Florero para arreglos medianos', 9, 30, 3.50, 7.50, 1, 1),
---('P010', 'Caja con Flores Artificiales', 'Caja elegante con rosas eternas', 10, 12, 8.00, 16.50, 1, 2),
---('P011', 'Rosa Eterna Azul', 'Rosa sintética encapsulada', 11, 10, 5.00, 12.99, 1, 1),
---('P012', 'Mini Arreglo Floral', 'Perfecto para escritorio', 12, 25, 2.50, 5.99, 1, 3),
---('P013', 'Orquídea Artificial Blanca', 'Orquídea de gran detalle', 13, 18, 6.00, 11.99, 1, 2),
---('P014', 'Tulipán Amarillo Artificial', 'Tulipán de tela de alta calidad', 14, 50, 2.00, 4.49, 1, 1),
---('P015', 'Suculenta Decorativa Pequeña', 'Maceta con suculenta sintética', 15, 60, 1.50, 3.99, 1, 2);
+--('P003', 'Rosa Artificial Individual', 'Rosa de tela roja', 3, 100, 1.00, 2.50, 1, 1)
+
 
 INSERT INTO Producto (codigo, nombre, descripcion, idCategoria, stock, precioCompra, precioVenta, estado)
 VALUES
@@ -284,7 +270,4 @@ VALUES
 ('ARRA001', 'Ramo Decorativo de Tulipanes', 'Ramo de 10 tulipanes artificiales en tonos variados', 6, 25, 6.00, 12.00, 1),
 ('ARRA002', 'Centro de Mesa con Flores Artificiales', 'Arreglo en base de cerámica con margaritas y follaje artificial', 7, 15, 8.00, 18.00, 1),
 ('DECO001', 'Jarrón Decorativo Moderno', 'Jarrón alto de vidrio para arreglos artificiales', 8, 30, 4.00, 9.00, 1)
-
-select*from Producto
-select idCategoria from Categoria
-select idCategoria,descripcion from Categoria
+------------------------------------------------------------------------------------------------------------------------------------------------------

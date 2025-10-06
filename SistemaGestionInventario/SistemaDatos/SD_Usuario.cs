@@ -10,6 +10,7 @@ using SistemaEntidades;
 using System.Collections;
 using System.Security.Claims;
 using System.Xml.Linq;
+using System.Windows.Forms;
 
 namespace SistemaDatos
 {
@@ -108,7 +109,9 @@ namespace SistemaDatos
                 Mensaje = ex.Message;
             }
 
+
             return idUsuarioGenerado;
+            
 
         }
 
@@ -220,6 +223,12 @@ namespace SistemaDatos
 
         }
 
+        public bool HayUsuarios()
+        {
+            using (var cn = new SqlConnection(Conexion.cadena))
+            using (var cmd = new SqlCommand("SELECT COUNT(1) FROM Usuario", cn))
+            { cn.Open(); return (int)cmd.ExecuteScalar() > 0; }
+        }
 
     }
 }

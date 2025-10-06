@@ -14,6 +14,7 @@ namespace SistemaNegocio
     {
 
         private SD_Usuario objsd_usuario = new SD_Usuario();
+        private readonly SD_Usuario dao = new SD_Usuario();
 
         // ===== LISTAR =====
         public List<Usuario> listar()
@@ -41,7 +42,11 @@ namespace SistemaNegocio
             // Hash antes de guardar
             obj.clave = BCrypt.Net.BCrypt.HashPassword(obj.clave);
 
+
+
             return objsd_usuario.Registrar(obj, out Mensaje);
+
+        
         }
 
         
@@ -94,17 +99,18 @@ namespace SistemaNegocio
             var u = objsd_usuario.ObtenerPorDocumento(documento);
             if (u == null) return null;
 
-            // ¿es hash BCrypt?
-            bool esHashBCrypt = u.clave.StartsWith("$2a$") || u.clave.StartsWith("$2b$") || u.clave.StartsWith("$2y$");
+            string hash = u.clave ?? "";
 
-            if (esHashBCrypt)
+            bool esBCrypt = hash.StartsWith("$2a$") || hash.StartsWith("$2b$") || hash.StartsWith("$2y$");
+
+            if (esBCrypt)
             {
-                return BCrypt.Net.BCrypt.Verify(clavePlano, u.clave) ? u : null;
+                return BCrypt.Net.BCrypt.Verify(clavePlano, hash) ? u : null;
             }
             else
             {
-                // Migración: donde si aún hay registros viejos en texto plano les apica hash y los actualiza
-                if (u.clave == clavePlano)
+                // Migración: si todavía hay registros antiguos en texto plano
+                if (hash == clavePlano)
                 {
                     string nuevoHash = BCrypt.Net.BCrypt.HashPassword(clavePlano);
                     objsd_usuario.ActualizarClave(u.idUsuario, nuevoHash);
@@ -115,8 +121,5 @@ namespace SistemaNegocio
             }
         }
 
-        // Opcional: wrapper si lo quieres en la UI
-        public Usuario ObtenerPorDocumento(string documento)
-            => objsd_usuario.ObtenerPorDocumento(documento);
     }
 }
