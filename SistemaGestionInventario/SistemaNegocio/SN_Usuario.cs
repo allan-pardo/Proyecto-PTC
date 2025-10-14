@@ -12,9 +12,11 @@ namespace SistemaNegocio
 {
     public class SN_Usuario
     {
+        private readonly SD_Usuario dao = new SD_Usuario();
+
+        public bool HayUsuarios() => dao.HayUsuarios();
 
         private SD_Usuario objsd_usuario = new SD_Usuario();
-        private readonly SD_Usuario dao = new SD_Usuario();
 
         // ===== LISTAR =====
         public List<Usuario> listar()
@@ -100,25 +102,20 @@ namespace SistemaNegocio
             if (u == null) return null;
 
             string hash = u.clave ?? "";
-
             bool esBCrypt = hash.StartsWith("$2a$") || hash.StartsWith("$2b$") || hash.StartsWith("$2y$");
 
             if (esBCrypt)
-            {
                 return BCrypt.Net.BCrypt.Verify(clavePlano, hash) ? u : null;
-            }
-            else
+
+            // Migración de contraseñas en texto plano (si quedara alguna)
+            if (hash == clavePlano)
             {
-                // Migración: si todavía hay registros antiguos en texto plano
-                if (hash == clavePlano)
-                {
-                    string nuevoHash = BCrypt.Net.BCrypt.HashPassword(clavePlano);
-                    objsd_usuario.ActualizarClave(u.idUsuario, nuevoHash);
-                    u.clave = nuevoHash;
-                    return u;
-                }
-                return null;
+                string nuevoHash = BCrypt.Net.BCrypt.HashPassword(clavePlano);
+                objsd_usuario.ActualizarClave(u.idUsuario, nuevoHash);
+                u.clave = nuevoHash;
+                return u;
             }
+            return null;
         }
 
     }

@@ -35,6 +35,34 @@ end
 
 go
 
+ALTER PROCEDURE dbo.SP_REGISTROUSUARIO
+    @Documento VARCHAR(50),
+    @NombreCompleto VARCHAR(100),
+    @Correo VARCHAR(100),
+    @Clave VARCHAR(60),
+    @IdRol INT,
+    @Estado BIT,
+    @IdUsuarioResultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SET @IdUsuarioResultado = 0;
+    SET @Mensaje = '';
+
+    IF NOT EXISTS(SELECT 1 FROM Usuario WHERE documento = @Documento)
+    BEGIN
+        INSERT INTO Usuario(documento,nombreCompleto,correo,clave,idRol,estado)
+        VALUES (@Documento,@NombreCompleto,@Correo,@Clave,@IdRol,@Estado);
+
+        SET @IdUsuarioResultado = SCOPE_IDENTITY();
+    END
+    ELSE
+        SET @Mensaje = 'No se puede repetir el documento para más de un usuario';
+END
+
+go
+
 create PROC SP_EDITARUSUARIO(
 @IdUsuario int,
 @Documento varchar(50),
@@ -113,6 +141,8 @@ begin
 end
 
 go
+
+
 
 /* ---------- PROCEDIMIENTOS PARA CATEGORIA -----------------*/
 
@@ -600,3 +630,5 @@ create PROC sp_ReporteCompras(
  inner join Categoria ca on ca.idCategoria = p.idCategoria
  where CONVERT(date,v.fechaRegistro) between @fechainicio and @fechafin
 end
+
+

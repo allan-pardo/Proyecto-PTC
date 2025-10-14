@@ -18,50 +18,38 @@ namespace SistemaDatos
     {
         public List<Permiso> listar(int idUsuario)
         {
+            var lista = new List<Permiso>();
 
-        List<Permiso> lista = new List<Permiso>();
-
-        using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-        {
-            try
+            using (SqlConnection cn = new SqlConnection(Conexion.cadena))
+            using (SqlCommand cmd = new SqlCommand(@"
+            SELECT p.idPermiso, p.nombreMenu, r.idRol, r.descripcion
+            FROM Permiso p
+            INNER JOIN Rol r   ON r.idRol  = p.idRol
+            INNER JOIN Usuario u ON u.idRol = r.idRol
+            WHERE u.idUsuario = @idUsuario;", cn))
             {
-                    StringBuilder query = new StringBuilder();
-                    query.AppendLine("select p.idRol,p.nombreMenu from Permiso p");
-                    query.AppendLine("inner join Rol r on r.idRol = p.idRol");
-                    query.AppendLine("inner join Usuario u on u.idRol = r.idRol");
-                    query.AppendLine("where u.idUsuario = 4");
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
 
-                SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
-                    cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
-                    cmd.CommandType = CommandType.Text;
-
-                oconexion.Open();
-
+                cn.Open();
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
-
                     while (dr.Read())
                     {
-                        lista.Add(new Permiso()
+                        lista.Add(new Permiso
                         {
-                            oRol = new Rol() {idRol = Convert.ToInt32(dr["idUsuario"]) } ,
+                            idPermiso = Convert.ToInt32(dr["idPermiso"]),
                             nombreMenu = dr["nombreMenu"].ToString(),
-
+                            oRol = new Rol
+                            {
+                                idRol = Convert.ToInt32(dr["idRol"]),
+                                descripcion = dr["descripcion"].ToString()
+                            }
                         });
                     }
-
                 }
-
-
-
             }
-            catch (Exception ex)
-            {
-                lista = new List<Permiso>();
-            }
-
-                }
-        return lista;
+            return lista;
         }
     }
 }

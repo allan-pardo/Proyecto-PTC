@@ -11,11 +11,7 @@ namespace SistemaNegocio
 {
     public class SN_Permiso
     {
-        private SD_Permiso objsd_permiso = new SD_Permiso();
-
-        public List<Permiso> listar(int idUsuario)
-        {
-            return objsd_permiso.listar(idUsuario);
-        }
+        private readonly SD_Permiso dao = new SD_Permiso();
+        public List<Permiso> listar(int idUsuario) => dao.listar(idUsuario);
     }
 }

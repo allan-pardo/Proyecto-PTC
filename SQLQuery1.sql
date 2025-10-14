@@ -51,7 +51,7 @@ idUsuario int primary key identity(1,1),
 documento varchar(50),
 nombreCompleto varchar(50),
 correo varchar(50),
-clave varchar(50),
+clave varchar(60),
 idRol int references Rol(idRol),
 estado bit,
 fechaRegistro datetime default getdate()
@@ -171,6 +171,60 @@ ALTER TABLE Usuario ALTER COLUMN clave VARCHAR(60) NOT NULL;
 ALTER TABLE Usuario ADD debeCambiarClave BIT NOT NULL DEFAULT(0);
 
 --------------------------------------------------------------------------------------------------
+SELECT 
+  documento,
+  correo,
+  LEFT(clave,4)  AS Prefijo,
+  LEN(clave)     AS LargoHash,
+  clave
+FROM Usuario
+WHERE LTRIM(RTRIM(documento)) = '123456';
+
+SELECT documento, LEFT(clave,4) prefijo, LEN(clave) largo
+FROM Usuario
+WHERE documento = '151515';
+
+-- Ver cuántos hay
+SELECT COUNT(*) AS Usuarios FROM dbo.Usuario;
+
+BEGIN TRAN;
+    DELETE FROM dbo.Usuario;
+    -- Reiniciar el IDENTITY para que el próximo empiece en 1
+    DBCC CHECKIDENT ('dbo.Usuario', RESEED, 0);
+COMMIT;
+
+SELECT fk.name AS FKName,
+       OBJECT_SCHEMA_NAME(fk.parent_object_id) AS HijaSchema,
+       OBJECT_NAME(fk.parent_object_id)        AS TablaHija,
+       cpa.name                                AS ColFK,
+       OBJECT_SCHEMA_NAME(fk.referenced_object_id) AS PadreSchema,
+       OBJECT_NAME(fk.referenced_object_id)        AS TablaPadre,
+       cref.name                                   AS ColPK,
+       fk.delete_referential_action                AS DeleteAction -- 0: NO ACTION, 1: CASCADE
+FROM sys.foreign_keys fk
+JOIN sys.foreign_key_columns fkc ON fk.object_id = fkc.constraint_object_id
+JOIN sys.columns cpa ON cpa.object_id = fk.parent_object_id AND cpa.column_id = fkc.parent_column_id
+JOIN sys.columns cref ON cref.object_id = fk.referenced_object_id AND cref.column_id = fkc.referenced_column_id
+WHERE fk.referenced_object_id = OBJECT_ID('dbo.Usuario');
+
+--BEGIN TRAN;
+
+---- 1) Hijas de compras/ventas (ajusta a tus nombres)
+--DELETE FROM Detalle_Compra;
+--DELETE FROM Detalle_Venta;
+
+---- 2) Tablas de movimientos/relaciones que dependan de Usuario;
+--DELETE FROM Compra;
+--DELETE FROM Venta;
+
+---- 3) Finalmente, usuarios
+--DELETE FROM Usuario;
+
+---- 4) Reseed si quieres que el próximo id sea 1
+--DBCC CHECKIDENT ('dbo.Usuario', RESEED, 0);
+
+--COMMIT;
+
 
 ---------------------------------------INGRESAR POR ORDEN, NO INTENTE INGRESARLOS AL AZAR--------------------------
 
@@ -202,7 +256,7 @@ INSERT INTO Usuario(documento, nombreCompleto, correo, clave, idRol, estado) VAL
 ('600412', 'Marco Díaz', 'marco.dz@gmail.com', 'marco2025', 2, 1);
 
 
---insert into Permiso(idRol,nombreMenu) values
+--INSERT INTO Permiso(idRol, nombreMenu) VALUES
 --(1,'menuUsuario'),
 --(1,'menuMantenedor'),
 --(1,'menuVentas'),
@@ -210,14 +264,17 @@ INSERT INTO Usuario(documento, nombreCompleto, correo, clave, idRol, estado) VAL
 --(1,'menuClientes'),
 --(1,'menuProveedores'),
 --(1,'menuReportes'),
---(1,'menuAcercaDe')
+--(1,'menuAcercaDe');
 
---insert into Permiso(idRol,nombreMenu) values
+---- Empleado: subset
+--INSERT INTO Permiso(idRol, nombreMenu) VALUES
 --(2,'menuVentas'),
 --(2,'menuCompras'),
 --(2,'menuClientes'),
 --(2,'menuProveedores'),
---(2,'menuAcercaDe')
+--(2,'menuAcercaDe');
+
+CREATE INDEX IX_Permiso_idRol ON Permiso(idRol);
 
 --INSERT INTO Cliente(documento, nombreCompleto, correo, telefono, estado)
 --VALUES

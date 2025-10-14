@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BCrypt.Net;
-
+using SistemaDatos;
 using SistemaEntidades;
 using SistemaNegocio;
 
@@ -70,9 +70,37 @@ namespace CapaPresentasion
             this.Show();
         }
 
+        private void ConfigurarRegistroExterno()
+        {
+            bool hayUsuarios = new SN_Usuario().HayUsuarios();
+
+            if (hayUsuarios)
+            {
+                pRegistro.Visible = false;      
+                pRegistro.Enabled = false;
+                btnRegistrarse.Visible = false; 
+                btnRegistrarse.Enabled = false;
+
+                
+                StartSlide(false);               
+                pLogin.BringToFront();
+            }
+            else
+            {
+                
+                pRegistro.Visible = true;
+                pRegistro.Enabled = true;
+                btnRegistrarse.Visible = true;
+                btnRegistrarse.Enabled = true;
+
+                StartSlide(true);                
+                pRegistro.BringToFront();
+            }
+        }
 
         private void Login_Load(object sender, EventArgs e)
         {
+            ConfigurarRegistroExterno();
             pPrincipal.AutoScroll = false;
 
             // iguala anchos al viewport
@@ -150,19 +178,29 @@ namespace CapaPresentasion
 
         private void btnIngresar_Click_1(object sender, EventArgs e)
         {
-            var cn = new SN_Usuario();
-            var ousuario = cn.Login(txtNoDocumento.Text.Trim(), txtClave.Text.Trim());
+            string doc = txtNoDocumento.Text.Trim();
+            string pass = txtClave.Text; // sin Trim
 
-            if (ousuario != null)
+            if (string.IsNullOrWhiteSpace(doc) || string.IsNullOrEmpty(pass))
             {
-                Inicio form = new Inicio(ousuario);
-                form.FormClosing += frm_closing;
-                form.Show();
+                MessageBox.Show("Ingresa documento y contraseña.");
+                return;
+            }
+
+            var sn = new SN_Usuario();
+            var u = sn.Login(doc, pass);   // hace BCrypt.Verify por dentro
+
+            if (u != null)
+            {
+                var frm = new Inicio(u);      
+                frm.FormClosing += frm_closing;
+                frm.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("no se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Documento o contraseña incorrectos.", "Login",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -180,17 +218,18 @@ namespace CapaPresentasion
         {
 
         }
+        private const int MAX_DOC = 8;
 
         private void txtNoDocumento_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+                return;
             }
-            if (!char.IsControl(e.KeyChar) && txtNoDocumento.Text.Length >= 6)
-            {
+
+            if (!char.IsControl(e.KeyChar) && txtNoDocumento.Text.Length >= MAX_DOC)
                 e.Handled = true;
-            }
         }
 
         private void txtNoDocumento_KeyDown_1(object sender, KeyEventArgs e)
@@ -211,6 +250,14 @@ namespace CapaPresentasion
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            if (new SN_Usuario().HayUsuarios())
+            {
+                MessageBox.Show("El registro externo está deshabilitado porque ya existe un usuario.",
+                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                StartSlide(false); // vuelve a login
+                return;
+            }
+
             string Mensaje = string.Empty;
 
             

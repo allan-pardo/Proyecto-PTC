@@ -13,6 +13,8 @@ using SistemaEntidades;
 using SistemaNegocio;
 using FontAwesome.Sharp;
 using System.Security.Policy;
+using FontAwesome.Sharp.Pro;
+using IconMenuItem = FontAwesome.Sharp.IconMenuItem;
 
 
 namespace CapaPresentasion
@@ -23,12 +25,13 @@ namespace CapaPresentasion
         private static IconMenuItem Menuactivo = null;
         private static Form formularioActivo = null;
 
+        // set construido en Inicio_Load con los nombreMenu de BD
+        private HashSet<string> _menus = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        
         public Inicio( Usuario objusuario = null)
         {
-            if (objusuario == null)
-                usuarioActual = new Usuario() { nombreCompleto = "Neton Vega", idUsuario = 1 };
-            else
-                usuarioActual = objusuario;
+            usuarioActual = objusuario;
 
             InitializeComponent();
         }
@@ -36,12 +39,70 @@ namespace CapaPresentasion
         private void Inicio_Load(object sender, EventArgs e)
         {
 
-            List<Permiso> listaPermiso = new SN_Permiso().listar(usuarioActual.idUsuario);
+            if (usuarioActual == null)
+            {
+                MessageBox.Show("No hay usuario en sesión.");
+                Close();
+                return;
+            }
+
+            var listaPermiso = new SN_Permiso().listar(usuarioActual.idUsuario);
+            _menus = new HashSet<string>(listaPermiso.Select(p => p.nombreMenu), StringComparer.OrdinalIgnoreCase);
 
             lblUsuarios.Text = usuarioActual.nombreCompleto;
+            AplicarPermisosUI();
 
         }
-        
+        private void AplicarPermisosUI()
+        {
+
+            // Oculta todo por defecto
+            imtMenuUsuario.Visible = false;
+            imtMantenedor.Visible = false;
+            imtVentas.Visible = false;
+            imtComprar.Visible = false;
+            imtClientes.Visible = false;
+            imtProovedores.Visible = false;
+            imtReportes.Visible = false;
+
+            // Submenús
+            imtSubMenuCategoria.Visible = false;
+            imtSubMenuProducto.Visible = false;
+            imtSubMenuNegocio.Visible = false; // si lo quieres atado a Mantenedor
+            imtSubMenuRegistrarVentas.Visible = false;
+            imtSubMenuVerDetalleVentas.Visible = false;
+            imtSubMenuRegistrarCompra.Visible = false;
+            imtSubMenuVerDetalleCompra.Visible = false;
+            imtSubMenuReporteVenta.Visible = false;
+            imtSubMenuReporteCompra.Visible = false;
+
+            // Habilitar según permisos (códigos de BD)
+            imtMenuUsuario.Visible = _menus.Contains("menuUsuario");
+            imtMantenedor.Visible = _menus.Contains("menuMantenedor");
+            imtVentas.Visible = _menus.Contains("menuVentas");
+            imtComprar.Visible = _menus.Contains("menuCompras");
+            imtClientes.Visible = _menus.Contains("menuClientes");
+            imtProovedores.Visible = _menus.Contains("menuProveedores");
+            imtReportes.Visible = _menus.Contains("menuReportes");
+
+            // Submenús: puedes agruparlos por el menú padre
+            bool puedeMantener = _menus.Contains("menuMantenedor");
+            imtSubMenuCategoria.Visible = puedeMantener;
+            imtSubMenuProducto.Visible = puedeMantener;
+            imtSubMenuNegocio.Visible = puedeMantener;
+
+            bool puedeVentas = _menus.Contains("menuVentas");
+            imtSubMenuRegistrarVentas.Visible = puedeVentas;
+            imtSubMenuVerDetalleVentas.Visible = puedeVentas;
+
+            bool puedeCompras = _menus.Contains("menuCompras");
+            imtSubMenuRegistrarCompra.Visible = puedeCompras;
+            imtSubMenuVerDetalleCompra.Visible = puedeCompras;
+
+            bool puedeReportes = _menus.Contains("menuReportes");
+            imtSubMenuReporteVenta.Visible = puedeReportes;
+            imtSubMenuReporteCompra.Visible = puedeReportes;
+        }
 
         private void abrirFormularios(IconMenuItem menu, Form formulario)
         {
@@ -70,9 +131,33 @@ namespace CapaPresentasion
 
         }
 
+        private bool Tiene(string codigoMenu) => _menus.Contains(codigoMenu);
+
+        private void AbrirSi(string codigoMenu, IconMenuItem menu, Form form)
+        {
+            if (!Tiene(codigoMenu))
+            {
+                MessageBox.Show("No tienes permiso para esta opción.");
+                return;
+            }
+            abrirFormularios(menu, form);
+        }
+
+        // Para submenús (ToolStripMenuItem): pásame el menú padre visible (IconMenuItem)
+        private void AbrirSi(string codigoMenu, IconMenuItem menuPadre, ToolStripMenuItem subMenu, Form form)
+        {
+            if (!Tiene(codigoMenu))
+            {
+                MessageBox.Show("No tienes permiso para esta opción.");
+                return;
+            }
+            abrirFormularios(menuPadre, form);
+        }
+
         private void iconMenuItem1_Click(object sender, EventArgs e)
         {
-            abrirFormularios((IconMenuItem)sender, new frmUsuarios());
+            AbrirSi("menuUsuario", (IconMenuItem)sender, new frmUsuarios());
+
         }
 
 
@@ -82,12 +167,18 @@ namespace CapaPresentasion
 
         private void imtSubMenuCategoria_Click(object sender, EventArgs e)
         {
-            abrirFormularios(imtMantenedor, new frmCategoria());
+            AbrirSi("menuMantenedor", imtMantenedor, imtSubMenuCategoria, new frmCategoria());
+
         }
 
         private void imtSubMenuProducto_Click(object sender, EventArgs e)
         {
-            abrirFormularios(imtMantenedor, new frmProducto());
+            AbrirSi("menuMantenedor", imtMantenedor, imtSubMenuProducto, new frmProducto());
+        }
+
+        private void imtSubMenuNegocio_Click(object sender, EventArgs e)
+        {
+            AbrirSi("menuMantenedor", imtMantenedor, imtSubMenuNegocio, new frmNegocio());
         }
 
         /*-----------------------------------------------------------------------------*/
@@ -96,12 +187,12 @@ namespace CapaPresentasion
 
         private void imtSubMenuRegistrarVentas_Click(object sender, EventArgs e)
         {
-            abrirFormularios((IconMenuItem)sender, new frmVentas(usuarioActual));
+            AbrirSi("menuVentas", imtVentas, imtSubMenuRegistrarVentas, new frmVentas(usuarioActual));
         }
 
         private void imtSubMenuVerDetalleVentas_Click(object sender, EventArgs e)
         {
-            abrirFormularios(imtVentas, new frmDetalleVenta());
+            AbrirSi("menuVentas", imtVentas, imtSubMenuVerDetalleVentas, new frmDetalleVenta());
         }
 
         /*-----------------------------------------------------------------------------*/
@@ -113,24 +204,24 @@ namespace CapaPresentasion
         }
         private void imtSubMenuRegistrarCompra_Click(object sender, EventArgs e)
         {
-            abrirFormularios((IconMenuItem)sender, new frmCompras(usuarioActual));
+            AbrirSi("menuCompras", imtComprar, imtSubMenuRegistrarCompra, new frmCompras(usuarioActual));
         }
 
         private void imtSubMenuVerDetalleCompra_Click(object sender, EventArgs e)
         {
-            abrirFormularios(imtComprar, new frmDetalleCompra());
+            AbrirSi("menuCompras", imtComprar, imtSubMenuVerDetalleCompra, new frmDetalleCompra());
         }
 
         /*-----------------------------------------------------------------------------*/
 
         private void imtClientes_Click(object sender, EventArgs e)
         {
-            abrirFormularios((IconMenuItem)sender, new frmClientes());
+            AbrirSi("menuClientes", (IconMenuItem)sender, new frmClientes());
         }
 
         private void imtProovedores_Click(object sender, EventArgs e)
         {
-            abrirFormularios((IconMenuItem)sender, new frmProovedores());
+            AbrirSi("menuProveedores", (IconMenuItem)sender, new frmProovedores());
         }
 
 
@@ -143,12 +234,13 @@ namespace CapaPresentasion
 
         private void imtSubMenuReporteVenta_Click(object sender, EventArgs e)
         {
-            abrirFormularios(imtReportes, new frmReporteVentas());
+            AbrirSi("menuReportes", imtReportes, imtSubMenuReporteVenta, new frmReporteVentas());
+
         }
 
         private void imtSubMenuReporteCompra_Click(object sender, EventArgs e)
         {
-            abrirFormularios(imtReportes, new frmReporteCompras());
+            AbrirSi("menuReportes", imtReportes, imtSubMenuReporteCompra, new frmReporteCompras());
         }
         /*-----------------------------------------------------------------------------*/
 
@@ -169,10 +261,6 @@ namespace CapaPresentasion
 
         }
 
-        private void imtAcercaDe_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void mspTitulo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -184,10 +272,7 @@ namespace CapaPresentasion
 
         }
 
-        private void imtSubMenuNegocio_Click(object sender, EventArgs e)
-        {
-            abrirFormularios(imtMantenedor, new frmNegocio());
-        }
+        
 
         
     }

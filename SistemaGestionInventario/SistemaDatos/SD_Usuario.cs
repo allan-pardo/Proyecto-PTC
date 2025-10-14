@@ -184,29 +184,37 @@ namespace SistemaDatos
         {
             using (var cn = new SqlConnection(Conexion.cadena))
             using (var cmd = new SqlCommand(@"
-                SELECT TOP 1 u.idUsuario,u.documento,u.nombreCompleto,u.correo,u.clave,u.estado,
-               r.idRol,r.descripcion
-                FROM Usuario u
-                INNER JOIN Rol r ON r.idRol=u.idRol
-                WHERE u.documento=@u OR u.correo=@u", cn))
+            SELECT TOP 1 
+            u.idUsuario,u.documento,u.nombreCompleto,u.correo,u.clave,u.estado,
+            u.idRol, r.descripcion
+            FROM Usuario u
+            LEFT JOIN Rol r ON r.idRol = u.idRol            
+            WHERE LTRIM(RTRIM(u.documento)) = LTRIM(RTRIM(@doc));", cn)) // trim en ambos lados
             {
-                cmd.Parameters.AddWithValue("@u", documentoOEmail?.Trim() ?? "");
+                cmd.Parameters.AddWithValue("@doc", documentoOEmail ?? "");
                 cn.Open();
                 using (var dr = cmd.ExecuteReader())
                 {
-                    if (!dr.Read()) return null;
-                    return new Usuario
+                    if (dr.Read())
                     {
-                        idUsuario = Convert.ToInt32(dr["idUsuario"]),
-                        documento = dr["documento"].ToString(),
-                        nombreCompleto = dr["nombreCompleto"].ToString(),
-                        correo = dr["correo"].ToString(),
-                        clave = dr["clave"].ToString(), // HASH Bcrypt
-                        estado = Convert.ToBoolean(dr["estado"]),
-                        oRol = new Rol { idRol = Convert.ToInt32(dr["idRol"]), descripcion = dr["descripcion"].ToString() }
-                    };
+                        return new Usuario
+                        {
+                            idUsuario = Convert.ToInt32(dr["idUsuario"]),
+                            documento = dr["documento"].ToString(),
+                            nombreCompleto = dr["nombreCompleto"].ToString(),
+                            correo = dr["correo"].ToString(),
+                            clave = dr["clave"].ToString(),
+                            estado = Convert.ToBoolean(dr["estado"]),
+                            oRol = new Rol
+                            {
+                                idRol = Convert.ToInt32(dr["idRol"]),
+                                descripcion = dr["descripcion"]?.ToString()
+                            }
+                        };
+                    }
                 }
             }
+            return null;
         }
 
         // Útil para migración o para cuando el admin cambie la clave:
@@ -215,7 +223,7 @@ namespace SistemaDatos
             using (var cn = new SqlConnection(Conexion.cadena))
             using (var cmd = new SqlCommand("UPDATE Usuario SET clave=@h WHERE idUsuario=@id", cn))
             {
-                cmd.Parameters.Add("@h", SqlDbType.VarChar, 60).Value = nuevoHash; // BCrypt = 60
+                cmd.Parameters.Add("@h", SqlDbType.VarChar, 60).Value = nuevoHash;
                 cmd.Parameters.AddWithValue("@id", idUsuario);
                 cn.Open();
                 cmd.ExecuteNonQuery();
